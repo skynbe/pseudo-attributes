@@ -142,10 +142,6 @@ class BPATrainer(OnlineTrainer):
         data_loader.dataset.clustering_off()                 
         return cluster_assigns, cluster_centers
 
-
-    def get_metric_loss(self, data):
-        return 0.
-
     
     def train(self, epoch):
         

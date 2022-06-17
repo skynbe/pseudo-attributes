@@ -1,0 +1,13 @@
+torch>=1.4.0
+torchvision>=0.2.1
+matplotlib
+pathlib
+pandas
+kmeans_pytorch
+configargparse
+tqdm
+seaborn
+opencv-python
+coloredlogs
+wandb
+numpy

@@ -80,22 +80,18 @@ class CelebA(torchvision.datasets.CelebA):
     
     def visualize(self):
         self.visualize_image = True
-        print("For visualize images with t-SNE plots.")
     
     def clustering_on(self):
         self.clustering = True
-        print("Enable clustering")
     
     def clustering_off(self):
         self.clustering = False
-        print("Unable clustering")
     
     def update_clusters(self, cluster_ids):
         self.cluster_ids = cluster_ids   
         
     def update_weights(self, weights):
         self.sample_weights = weights 
-        
         
     
     def __len__(self):
@@ -159,25 +155,11 @@ class CelebA(torchvision.datasets.CelebA):
         if self.transform is not None:
             transform = self.transform
             img = transform(img_)
-            if self.pair:
-                img2 = transform(img_)
 
-                
-        if self.visualize_image is True:
-            return img, target_attr, index, img_path
-    
         # for clustering
         if self.clustering is True:
             return img, target_attr, index
-        
-        
-        if len(self.aux_indices) > 0:
-            aux_attrs = np.array([target[aux_index] for aux_index in self.aux_indices])
-            return img, target_attr, aux_attrs, bias_attrs, group, cluster, weight, index
-            
-        if self.visualize:
-            return img, target_attr, bias_attrs, group, cluster, weight, index, img_path
-            
+                
         
         return img, target_attr, bias_attrs, group, cluster, weight, index
         
